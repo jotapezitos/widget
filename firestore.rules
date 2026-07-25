@@ -1,0 +1,77 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin'
+      );
+    }
+
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Services collection
+    match /services/{serviceId} {
+      allow read, write: if true;
+    }
+
+    // Barbers collection
+    match /barbers/{barberId} {
+      allow read, write: if true;
+    }
+
+    // User profiles
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+
+    // Settings & Gallery
+    match /settings/{settingId} {
+      allow read, write: if true;
+    }
+
+    match /gallery/{galleryId} {
+      allow read, write: if true;
+    }
+
+    // Appointments collection
+    match /appointments/{appointmentId} {
+      allow read, write: if true;
+    }
+
+    // Breaks collection
+    match /breaks/{breakId} {
+      allow read, write: if true;
+    }
+
+    // Notifications collection
+    match /notifications/{notificationId} {
+      allow read, write: if true;
+    }
+
+    // Email outbox collection
+    match /email_outbox/{emailId} {
+      allow read, write: if true;
+    }
+
+    // Support tickets collection
+    match /support_tickets/{ticketId} {
+      allow read, write: if true;
+      match /messages/{messageId} {
+        allow read, write: if true;
+      }
+    }
+  }
+}

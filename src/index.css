@@ -1,0 +1,364 @@
+@import "tailwindcss";
+
+/* ==================== FREEZE & DISABLE ALL ANIMATIONS (EXCEPT STORIES LOADING BAR) ==================== */
+*:not(.story-loading-bar), *::before, *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  animation-delay: 0s !important;
+  animation-play-state: paused !important;
+  transition-duration: 0.001ms !important;
+  transition-delay: 0s !important;
+}
+
+@keyframes progressAnim {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.story-loading-bar {
+  animation-name: progressAnim !important;
+  animation-timing-function: linear !important;
+  animation-fill-mode: forwards !important;
+}
+
+.animate-marquee,
+.animate-marquee-reverse,
+.animate-stripes-right,
+.animate-float-heart,
+.animate-pulse,
+.animate-spin,
+.animate-bounce,
+.animate-ping {
+  animation: none !important;
+  transform: none !important;
+}
+
+.font-bebas {
+  font-family: 'Bebas Neue', cursive, sans-serif;
+  letter-spacing: 0.05em;
+}
+.font-street {
+  font-family: 'Sedgwick Ave Display', cursive, sans-serif;
+}
+.font-syne {
+  font-family: 'Syne', sans-serif;
+}
+.font-splash {
+  font-family: 'Kaushan Script', 'Caveat', cursive, sans-serif;
+}
+
+.text-glow-amber {
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+}
+.text-glow-green {
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+.bg-street-grid {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marqueeReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+.animate-marquee-reverse {
+  display: flex;
+  width: 200%;
+  animation: marqueeReverse 30s linear infinite;
+  will-change: transform;
+}
+
+@keyframes moveStripesRight {
+  0% { background-position: 0 0; }
+  100% { background-position: 32px 0; }
+}
+.animate-stripes-right {
+  background-image: linear-gradient(
+    -45deg,
+    #000 25%,
+    #facc15 25%,
+    #facc15 50%,
+    #000 50%,
+    #000 75%,
+    #facc15 75%,
+    #facc15 100%
+  );
+  background-size: 32px 32px;
+  will-change: background-position;
+}
+
+/* Mobile Performance Optimizations: Disable heavy CPU/GPU animations and backdrop blur on mobile */
+@media (max-width: 768px) {
+  .animate-stripes-right {
+    animation: none !important;
+    background-position: 0 0 !important;
+  }
+  .animate-marquee, .animate-marquee-reverse {
+    animation-duration: 45s !important;
+  }
+  .backdrop-blur-md, .backdrop-blur-xl, .backdrop-blur-lg {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+@keyframes floatUpHeart {
+  0% {
+    opacity: 1;
+    transform: translateY(0px) scale(0.5) rotate(var(--rot, 0deg));
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-40px) scale(1.15) rotate(calc(var(--rot, 0deg) + 5deg));
+  }
+  60% {
+    opacity: 0.9;
+    transform: translateY(-140px) scale(1) translateX(var(--drift, 20px)) rotate(calc(var(--rot, 0deg) - 5deg));
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-250px) scale(0.6) translateX(calc(var(--drift, 20px) * 1.6)) rotate(var(--rot, 0deg));
+  }
+}
+
+.animate-float-heart {
+  animation: floatUpHeart 1.6s ease-out forwards;
+}
+
+/* ==================== DARK MODE THEME STYLES (NEGATIVE HIGH-CONTRAST VERSION) ==================== */
+.simulated-window.dark {
+  color-scheme: dark;
+}
+
+.simulated-window.dark .bg-street-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 0) !important;
+}
+
+/* Structural Backgrounds: Inverting White containers to dark black */
+.simulated-window.dark header,
+.simulated-window.dark footer,
+.simulated-window.dark nav,
+.simulated-window.dark .bg-white,
+.simulated-window.dark .bg-white\/95,
+.simulated-window.dark .bg-white\/90,
+.simulated-window.dark .bg-white\/80,
+.simulated-window.dark .bg-white\/70,
+.simulated-window.dark .bg-white\/60,
+.simulated-window.dark .bg-white\/50 {
+  background-color: #09090b !important;
+  color: #ffffff !important;
+}
+
+.simulated-window.dark .bg-zinc-50,
+.simulated-window.dark .bg-zinc-50\/80 {
+  background-color: #09090b !important;
+  color: #ffffff !important;
+}
+
+.simulated-window.dark .bg-zinc-100,
+.simulated-window.dark .bg-zinc-100\/90 {
+  background-color: #121215 !important;
+  color: #ffffff !important;
+}
+
+.simulated-window.dark .bg-zinc-200 {
+  background-color: #27272a !important;
+  color: #ffffff !important;
+}
+
+/* Invert solid black containers/buttons (non-yellow) into White containers with Black text */
+.simulated-window.dark .bg-black:not(.bg-amber-400):not(.bg-amber-300):not(.bg-red-600):not(.bg-blue-600) {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.simulated-window.dark .bg-black:not(.bg-amber-400):not(.bg-amber-300):not(.bg-red-600):not(.bg-blue-600) * {
+  color: #000000 !important;
+}
+
+/* Text Inversions */
+.simulated-window.dark .text-black,
+.simulated-window.dark .text-zinc-900,
+.simulated-window.dark .text-zinc-800 {
+  color: #ffffff !important;
+}
+
+.simulated-window.dark .text-zinc-700,
+.simulated-window.dark .text-zinc-600 {
+  color: #e4e4e7 !important;
+}
+
+.simulated-window.dark .text-zinc-500 {
+  color: #a1a1aa !important;
+}
+
+/* Borders Inversions (All black borders become stark solid white) */
+.simulated-window.dark .border-black,
+.simulated-window.dark .border-zinc-900,
+.simulated-window.dark .border-zinc-800 {
+  border-color: #ffffff !important;
+}
+
+.simulated-window.dark .border-zinc-200,
+.simulated-window.dark .border-zinc-300,
+.simulated-window.dark .border-zinc-700 {
+  border-color: #3f3f46 !important;
+}
+
+/* HARD DISPLACEMENT OFFSET SHADOWS (INVERTED TO SOLID CRISP WHITE IN DARK MODE) */
+.simulated-window.dark .shadow-\[1px_1px_0px_0px_rgba\(0\,0\,0\,1\)\] {
+  box-shadow: 1px 1px 0px 0px #ffffff !important;
+}
+
+.simulated-window.dark .shadow-\[2px_2px_0px_0px_rgba\(0\,0\,0\,1\)\] {
+  box-shadow: 2px 2px 0px 0px #ffffff !important;
+}
+
+.simulated-window.dark .shadow-\[3px_3px_0px_0px_rgba\(0\,0\,0\,1\)\] {
+  box-shadow: 3px 3px 0px 0px #ffffff !important;
+}
+
+.simulated-window.dark .shadow-\[4px_4px_0px_0px_rgba\(0\,0\,0\,1\)\] {
+  box-shadow: 4px 4px 0px 0px #ffffff !important;
+}
+
+.simulated-window.dark .shadow-\[5px_5px_0px_0px_rgba\(0\,0\,0\,1\)\] {
+  box-shadow: 5px 5px 0px 0px #ffffff !important;
+}
+
+.simulated-window.dark .shadow-\[6px_6px_0px_0px_rgba\(0\,0\,0\,1\)\] {
+  box-shadow: 6px 6px 0px 0px #ffffff !important;
+}
+
+.simulated-window.dark .shadow-\[8px_8px_0px_0px_rgba\(0\,0\,0\,1\)\] {
+  box-shadow: 8px 8px 0px 0px #ffffff !important;
+}
+
+.simulated-window.dark .shadow-\[10px_10px_0px_0px_rgba\(0\,0\,0\,1\)\] {
+  box-shadow: 10px 10px 0px 0px #ffffff !important;
+}
+
+.simulated-window.dark .shadow-\[0px_4px_10px_rgba\(0\,0\,0\,0\.25\)\] {
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.25) !important;
+}
+
+.simulated-window.dark .shadow-\[0px_6px_12px_rgba\(0\,0\,0\,0\.3\)\] {
+  box-shadow: 0px 6px 12px rgba(255, 255, 255, 0.3) !important;
+}
+
+.simulated-window.dark .shadow-\[2px_2px_0px_0px_\#000\],
+.simulated-window.dark .shadow-\[3px_3px_0px_0px_\#000\],
+.simulated-window.dark .shadow-\[4px_4px_0px_0px_\#000\],
+.simulated-window.dark .shadow-\[6px_6px_0px_0px_\#000\] {
+  box-shadow: 4px 4px 0px 0px #ffffff !important;
+}
+
+/* ANIMATED CAUTION TAPE / STORY ANIMATED STRIPES IN DARK MODE */
+.simulated-window.dark .animate-stripes-right {
+  background-image: linear-gradient(
+    -45deg,
+    #ffffff 25%,
+    #facc15 25%,
+    #facc15 50%,
+    #ffffff 50%,
+    #ffffff 75%,
+    #facc15 75%,
+    #facc15 100%
+  ) !important;
+}
+
+/* PRESERVE ACCENT BRAND COLORS EXACTLY (YELLOW, BLUE, RED) */
+.simulated-window.dark .bg-amber-400,
+.simulated-window.dark .bg-amber-300,
+.simulated-window.dark .bg-amber-500,
+.simulated-window.dark .bg-yellow-400,
+.simulated-window.dark .bg-yellow-300 {
+  background-color: #facc15 !important;
+  color: #000000 !important;
+}
+
+.simulated-window.dark .bg-amber-400 *,
+.simulated-window.dark .bg-amber-300 *,
+.simulated-window.dark .bg-yellow-400 * {
+  color: #000000 !important;
+}
+
+.simulated-window.dark .text-amber-400,
+.simulated-window.dark .text-amber-500,
+.simulated-window.dark .text-amber-300,
+.simulated-window.dark .text-yellow-400 {
+  color: #facc15 !important;
+}
+
+/* PRESERVE BLUE ACCENTS */
+.simulated-window.dark .bg-blue-600,
+.simulated-window.dark .bg-blue-500,
+.simulated-window.dark .bg-\[\#3b82f6\] {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+.simulated-window.dark .bg-blue-600 *,
+.simulated-window.dark .bg-\[\#3b82f6\] * {
+  color: #ffffff !important;
+}
+
+.simulated-window.dark .text-blue-500,
+.simulated-window.dark .text-blue-400,
+.simulated-window.dark .text-\[\#3b82f6\] {
+  color: #3b82f6 !important;
+}
+
+/* PRESERVE RED ACCENTS */
+.simulated-window.dark .bg-red-600,
+.simulated-window.dark .bg-red-500,
+.simulated-window.dark .bg-rose-600,
+.simulated-window.dark .bg-\[\#dc2626\] {
+  background-color: #dc2626 !important;
+  color: #ffffff !important;
+}
+
+.simulated-window.dark .bg-red-600 *,
+.simulated-window.dark .bg-\[\#dc2626\] * {
+  color: #ffffff !important;
+}
+
+.simulated-window.dark .text-red-500,
+.simulated-window.dark .text-red-400,
+.simulated-window.dark .text-rose-600 {
+  color: #ef4444 !important;
+}
+
+/* INPUTS, SELECTS & TEXTAREAS IN DARK MODE */
+.simulated-window.dark input,
+.simulated-window.dark select,
+.simulated-window.dark textarea {
+  background-color: #18181b !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+.simulated-window.dark input::placeholder,
+.simulated-window.dark textarea::placeholder {
+  color: #a1a1aa !important;
+}
+
+@keyframes progressAnim {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+
+
