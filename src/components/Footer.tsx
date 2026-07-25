@@ -77,7 +77,7 @@ export const Footer: React.FC = () => {
             </a>
           </div>
           <p className="text-[11px] text-zinc-500 pt-2 font-medium">
-            © {new Date().getFullYear()} Barba & Estilo. Todos os direitos reservados.
+            © {new Date().getFullYear()} Kauan Barber. Todos os direitos reservados.
           </p>
         </div>
 

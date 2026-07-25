@@ -47,8 +47,8 @@ export const BrowserWindowMockup: React.FC<BrowserWindowMockupProps> = ({
       path: `/barbearia/gestao`,
     },
     3: {
-      name: 'SaaS SuperAdmin',
-      path: `/platform/superadmin`,
+      name: 'Painel Barbeiro',
+      path: `/barba/barbeiro`,
     },
   }[activeLevel];
 
@@ -92,7 +92,7 @@ export const BrowserWindowMockup: React.FC<BrowserWindowMockupProps> = ({
               <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-t-xl bg-zinc-800 border-t-2 border-x-2 border-zinc-700 text-white font-bebas text-sm sm:text-base tracking-wide shrink-0">
                 <span className="w-2 h-2 rounded-full bg-emerald-400" />
                 <span className="truncate max-w-[200px] sm:max-w-[280px]">
-                  BARBA & ESTILO | Barbearia Moderna
+                  Kauan Barber | Barbearia
                 </span>
                 <span className="text-zinc-500 text-xs hover:text-white cursor-pointer ml-1" onClick={onTriggerVisualNotice}>
                   ✕

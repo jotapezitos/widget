@@ -43,14 +43,30 @@ export const BarbersList: React.FC<BarbersListProps> = ({ onSelectBarber }) => {
           const list: Barber[] = snapshot.docs.map((doc) => {
             const data = doc.data() as Omit<Barber, 'id'>;
             let normalizedName = data.name;
-            if (data.name.includes('Eduardo Silva') || data.name.includes('J.')) normalizedName = 'Kauan Lima';
-            else if (data.name.includes('Carlos Oliveira') || data.name.includes('Mestre da Navalha')) normalizedName = 'Eduardo Péricles';
-            else if (data.name.includes('Rafael Santos') || data.name.includes('Pezinho de Ouro')) normalizedName = 'Lucas Andrade';
+            let photoUrl = data.photoUrl;
+
+            if (data.name.includes('Eduardo Silva') || data.name.includes('J.') || data.name.includes('Kauan')) {
+              normalizedName = 'Kauan Lima';
+              if (!photoUrl || photoUrl.includes('unsplash')) {
+                photoUrl = DEFAULT_BARBERS[0].photoUrl;
+              }
+            } else if (data.name.includes('Carlos') || data.name.includes('Mestre') || data.name.includes('Eduardo')) {
+              normalizedName = 'Eduardo Péricles';
+              if (!photoUrl || photoUrl.includes('unsplash')) {
+                photoUrl = DEFAULT_BARBERS[1].photoUrl;
+              }
+            } else if (data.name.includes('Rafael') || data.name.includes('Lucas')) {
+              normalizedName = 'Lucas Andrade';
+              if (!photoUrl || photoUrl.includes('unsplash')) {
+                photoUrl = DEFAULT_BARBERS[2].photoUrl;
+              }
+            }
 
             return {
               id: doc.id,
               ...data,
               name: normalizedName,
+              photoUrl: photoUrl || DEFAULT_BARBERS[0].photoUrl,
             };
           });
           setBarbers(list);
@@ -71,7 +87,7 @@ export const BarbersList: React.FC<BarbersListProps> = ({ onSelectBarber }) => {
       name: '',
       specialty: 'Cortes & Barba',
       bio: '',
-      photoUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400',
+      photoUrl: DEFAULT_BARBERS[0].photoUrl,
       phone: '(11) 98888-7777',
       active: true,
     });
@@ -167,6 +183,7 @@ export const BarbersList: React.FC<BarbersListProps> = ({ onSelectBarber }) => {
                     <img
                       src={barber.photoUrl}
                       alt={barber.name}
+                      referrerPolicy="no-referrer"
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
                     <span className="absolute top-4 left-4 px-3 py-1 rounded-lg bg-amber-400 text-black border-2 border-black text-xs font-black font-bebas uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">

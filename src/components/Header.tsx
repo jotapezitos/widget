@@ -126,42 +126,37 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, onOpenB
                     title="Perfil de Gestor Simulado (Logado)"
                   >
                     <span className="text-xs font-bold text-zinc-900 max-w-[120px] truncate hidden sm:inline">
-                      Carlos Gestor
+                      Gestão Demo
                     </span>
-                    <img
-                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200"
-                      alt="Carlos Gestor"
-                      className="w-7 h-7 rounded-full border border-black ring-2 ring-amber-400 object-cover"
-                    />
+                    <div className="w-7 h-7 rounded-full bg-blue-500 text-white font-bold flex items-center justify-center border border-black shadow-inner">
+                      <User className="w-3.5 h-3.5" />
+                    </div>
                   </button>
                 </div>
               ) : isBarberView ? (
                 <div className="flex items-center gap-2 bg-zinc-100 border-2 border-black p-1 pl-3 rounded-full shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                   <button
                     type="button"
-                    onClick={() => alert('Perfil demonstrativo do Barbeiro Kauan Lima (não editável nesta apresentação).')}
+                    onClick={() => alert('Perfil demonstrativo do Barbeiro (não editável nesta apresentação).')}
                     className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-default"
-                    title="Perfil do Barbeiro Kauan Lima (Logado)"
+                    title="Perfil do Barbeiro Simulado (Logado)"
                   >
                     <span className="text-xs font-bold text-zinc-900 max-w-[120px] truncate hidden sm:inline">
-                      Kauan Lima
+                      Barbeiro Demo
                     </span>
-                    <img
-                      src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200"
-                      alt="Kauan Lima"
-                      className="w-7 h-7 rounded-full border border-black ring-2 ring-amber-400 object-cover"
-                    />
+                    <div className="w-7 h-7 rounded-full bg-emerald-500 text-white font-bold flex items-center justify-center border border-black shadow-inner">
+                      <User className="w-3.5 h-3.5" />
+                    </div>
                   </button>
                 </div>
               ) : user ? (
-                <div className="flex items-center gap-2 bg-zinc-100 border-2 border-black p-1 pl-3 rounded-full shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  <button
-                    onClick={() => setIsProfileModalOpen(true)}
-                    className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer"
-                    title="Ver meu resumo de perfil e histórico"
+                <div className="flex items-center gap-2 bg-zinc-100 border-2 border-black p-1 px-3 rounded-full shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] cursor-default">
+                  <div
+                    className="flex items-center gap-2 select-none"
+                    title="Cliente Demo"
                   >
                     <span className="text-xs font-bold text-zinc-900 max-w-[120px] truncate hidden sm:inline">
-                      {userProfile?.name || user.displayName || 'Usuário'}
+                      {userProfile?.name || user.displayName || 'Cliente Demo'}
                     </span>
                     {userProfile?.photoUrl || user.photoURL ? (
                       <img
@@ -174,14 +169,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, onOpenB
                         <User className="w-3.5 h-3.5" />
                       </div>
                     )}
-                  </button>
-                  <button
-                    onClick={logout}
-                    title="Sair da conta"
-                    className="p-1.5 text-zinc-500 hover:text-rose-600 transition-colors cursor-pointer"
-                  >
-                    <LogOut className="w-3.5 h-3.5" />
-                  </button>
+                  </div>
                 </div>
               ) : (
                 <button
@@ -565,7 +553,29 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, onOpenB
               Agendar
             </button>
 
-            {user ? (
+            {isGestorView ? (
+              <div className="flex items-center gap-2 bg-zinc-100 border border-zinc-200 p-1 pl-2.5 rounded-full">
+                <div className="flex items-center gap-2 cursor-default" title="Perfil de Gestor Simulado">
+                  <span className="text-xs font-bold text-zinc-900 max-w-[100px] truncate hidden sm:inline">
+                    Gestão Demo
+                  </span>
+                  <div className="w-6 h-6 rounded-full bg-blue-500 text-white font-bold flex items-center justify-center border border-black shadow-inner">
+                    <User className="w-3 h-3" />
+                  </div>
+                </div>
+              </div>
+            ) : isBarberView ? (
+              <div className="flex items-center gap-2 bg-zinc-100 border border-zinc-200 p-1 pl-2.5 rounded-full">
+                <div className="flex items-center gap-2 cursor-default" title="Perfil do Barbeiro Simulado">
+                  <span className="text-xs font-bold text-zinc-900 max-w-[100px] truncate hidden sm:inline">
+                    Barbeiro Demo
+                  </span>
+                  <div className="w-6 h-6 rounded-full bg-emerald-500 text-white font-bold flex items-center justify-center border border-black shadow-inner">
+                    <User className="w-3 h-3" />
+                  </div>
+                </div>
+              </div>
+            ) : user ? (
               <div className="flex items-center gap-2 bg-zinc-100 border border-zinc-200 p-1 pl-2.5 rounded-full">
                 <button
                   onClick={() => setIsProfileModalOpen(true)}

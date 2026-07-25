@@ -3,7 +3,7 @@ import { Building2, DollarSign, Calendar as CalendarIcon, Scissors, Users, Clock
 import { db, collection, onSnapshot, doc, updateDoc, deleteDoc, addDoc, setDoc, handleFirestoreError, OperationType } from '../lib/firebase';
 import { Appointment, AppointmentStatus, Barber, Service, SaaSPlan, GallerySettings, StorySlide } from '../types';
 import { DEFAULT_SAAS_PLANS } from '../data/saasDefaults';
-import { DEFAULT_GALLERY_SETTINGS, AVAILABLE_HOURS, DEFAULT_APPOINTMENTS } from '../data/initialData';
+import { DEFAULT_GALLERY_SETTINGS, AVAILABLE_HOURS, DEFAULT_APPOINTMENTS, DEFAULT_BARBERS } from '../data/initialData';
 import { MediaRenderer } from './MediaRenderer';
 import { SupportInbox } from './SupportInbox';
 import { useAuth } from '../context/AuthContext';
@@ -85,7 +85,7 @@ export const TenantOwnerDashboard: React.FC<TenantOwnerDashboardProps> = ({ init
   const [barberFormData, setBarberFormData] = useState<Omit<Barber, 'id'>>({
     name: '',
     specialty: 'Corte & Barba',
-    photoUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500',
+    photoUrl: DEFAULT_BARBERS[0].photoUrl,
     rating: 5.0,
     experienceYears: 4,
     bio: 'Especialista em corte na régua, degradação navalhada e alinhamento de barba.',
@@ -398,7 +398,7 @@ export const TenantOwnerDashboard: React.FC<TenantOwnerDashboardProps> = ({ init
               Painel do Gestor da Barbearia
             </div>
             <h1 className="text-3xl sm:text-4xl font-bebas font-bold text-black uppercase tracking-wide">
-              Barba & Estilo - Gestão Operacional & Financeira
+              Kauan Barber - Gestão Operacional & Financeira
             </h1>
           </div>
 
@@ -728,8 +728,9 @@ export const TenantOwnerDashboard: React.FC<TenantOwnerDashboardProps> = ({ init
                   <div key={barber.id} className="bg-zinc-50 border-2 border-black rounded-2xl p-4 space-y-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                     <div className="flex items-center gap-3 border-b-2 border-black pb-3">
                       <img
-                        src={barber.photoUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100'}
+                        src={barber.photoUrl || DEFAULT_BARBERS[0].photoUrl}
                         alt={barber.name}
+                        referrerPolicy="no-referrer"
                         className="w-10 h-10 rounded-full object-cover border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
                       />
                       <div>
@@ -893,8 +894,9 @@ export const TenantOwnerDashboard: React.FC<TenantOwnerDashboardProps> = ({ init
                   <div>
                     <div className="flex items-center gap-4 mb-4">
                       <img
-                        src={barber.photoUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500'}
+                        src={barber.photoUrl || DEFAULT_BARBERS[0].photoUrl}
                         alt={barber.name}
+                        referrerPolicy="no-referrer"
                         className="w-16 h-16 rounded-2xl object-cover border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
                       />
                       <div>
@@ -911,7 +913,7 @@ export const TenantOwnerDashboard: React.FC<TenantOwnerDashboardProps> = ({ init
                     </div>
 
                     <p className="text-xs text-zinc-600 font-medium leading-relaxed mb-4">
-                      {barber.bio || 'Profissional especialista da equipe Barbearia Barba & Estilo.'}
+                      {barber.bio || 'Profissional especialista da equipe Kauan Barber.'}
                     </p>
 
                     <div className="space-y-1.5 text-xs text-zinc-800 border-t-2 border-zinc-100 pt-3 font-medium">

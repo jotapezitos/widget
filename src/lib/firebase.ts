@@ -20,7 +20,7 @@ const inMemoryData: Record<string, Record<string, any>> = {
     return acc;
   }, {} as Record<string, any>),
   settings: {
-    tenant: { id: 'tenant', name: 'Barba & Estilo', status: 'active', isFrozen: false, managerEmails: ['jeanmarceloop@gmail.com'] },
+    tenant: { id: 'tenant', name: 'Kauan Barber', status: 'active', isFrozen: false, managerEmails: ['jeanmarceloop@gmail.com'] },
     gallery: { id: 'gallery', ...DEFAULT_GALLERY_SETTINGS },
   },
   notifications: {},

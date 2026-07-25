@@ -386,6 +386,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                           <img
                             src={barber.photoUrl}
                             alt={barber.name}
+                            referrerPolicy="no-referrer"
                             className="w-12 h-12 rounded-full object-cover border-2 border-black shrink-0"
                           />
                           <div className="flex-1">

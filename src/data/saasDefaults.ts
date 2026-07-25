@@ -45,7 +45,7 @@ export const DEFAULT_SAAS_PLANS: SaaSPlan[] = [
 export const INITIAL_TENANTS: Tenant[] = [
   {
     id: 'tenant_barba_estilo',
-    name: 'Barba & Estilo - Unidade Central',
+    name: 'Kauan Barber - Unidade Central',
     slug: 'barba-estilo-central',
     ownerUid: 'owner_123',
     ownerName: 'Gestor da Barbearia',

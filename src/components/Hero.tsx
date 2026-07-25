@@ -264,7 +264,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal, onViewServices }
         {/* TAPE 2 (ON TOP): ANIMATED SOLID YELLOW TICKER MARQUEE */}
         <div className="relative z-10 w-[116%] -ml-[8%] rotate-2 sm:rotate-1.5 border-y-2 border-black bg-amber-400 py-1.5 sm:py-2 shadow-[0px_6px_12px_rgba(0,0,0,0.3)] flex items-center overflow-hidden">
           <div className="animate-marquee whitespace-nowrap flex items-center gap-6 font-bebas text-sm sm:text-base tracking-widest uppercase font-black text-black">
-            <span className="flex items-center gap-1.5"><Flame className="w-4 h-4 fill-black text-black" /> CORTES MODERNOS & ESTILO EXCLUSIVO</span>
+            <span className="flex items-center gap-1.5"><Flame className="w-4 h-4 fill-black text-black" /> CORTES MODERNOS & ATENDIMENTO EXCLUSIVO</span>
             <span className="text-black font-black text-sm font-mono">//</span>
             <span className="flex items-center gap-1.5"><Zap className="w-4 h-4 fill-black text-black" /> DEGRADÊ NAVALHADO DE PRECISÃO</span>
             <span className="text-black font-black text-sm font-mono">//</span>
@@ -275,7 +275,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal, onViewServices }
             <span className="flex items-center gap-1.5"><Scissors className="w-4 h-4 text-black" /> BARBOTERAPIA & RISCO NA SOBRANCELHA</span>
             <span className="text-black font-black text-sm font-mono">//</span>
             {/* Repeat set for continuous marquee */}
-            <span className="flex items-center gap-1.5"><Flame className="w-4 h-4 fill-black text-black" /> CORTES MODERNOS & ESTILO EXCLUSIVO</span>
+            <span className="flex items-center gap-1.5"><Flame className="w-4 h-4 fill-black text-black" /> CORTES MODERNOS & ATENDIMENTO EXCLUSIVO</span>
             <span className="text-black font-black text-sm font-mono">//</span>
             <span className="flex items-center gap-1.5"><Zap className="w-4 h-4 fill-black text-black" /> DEGRADÊ NAVALHADO DE PRECISÃO</span>
             <span className="text-black font-black text-sm font-mono">//</span>

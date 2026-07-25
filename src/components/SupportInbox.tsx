@@ -237,7 +237,7 @@ export const SupportInbox: React.FC<SupportInboxProps> = ({ mode, autoStartTicke
       const now = new Date().toISOString();
       const managerName = userProfile?.name || user.displayName || 'Gestor da Barbearia';
       const managerEmail = (user.email || '').toLowerCase();
-      const shopName = userProfile?.barberId ? 'Barbearia do Gestor' : 'Barba & Estilo - Unidade Principal';
+      const shopName = userProfile?.barberId ? 'Barbearia do Gestor' : 'Kauan Barber - Unidade Principal';
 
       // 1. Create ticket doc in Firestore
       const subjectTitle =

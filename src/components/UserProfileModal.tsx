@@ -133,7 +133,7 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({
             <div className="flex-1 text-center sm:text-left space-y-2">
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
                 <h3 className="font-bebas font-black text-2xl text-black uppercase tracking-wide">
-                  {userProfile?.name || user.displayName || 'Cliente Kauan Barber'}
+                  {userProfile?.name || user.displayName || 'Cliente Demo'}
                 </h3>
 
                 {/* VIP / Subscriber Badge */}
@@ -327,7 +327,7 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({
           </div>
 
           {/* Actions Bottom Bar */}
-          <div className="pt-4 border-t-2 border-black flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="pt-4 border-t-2 border-black flex items-center justify-end">
             <button
               onClick={() => {
                 onClose();
@@ -337,17 +337,6 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({
             >
               <Calendar className="w-4 h-4" />
               Ver Meus Agendamentos
-            </button>
-
-            <button
-              onClick={() => {
-                logout();
-                onClose();
-              }}
-              className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-rose-100 hover:bg-rose-200 text-rose-900 border-2 border-black font-bebas font-bold text-sm uppercase flex items-center justify-center gap-1.5 transition-all cursor-pointer"
-            >
-              <LogOut className="w-4 h-4" />
-              Sair da Conta
             </button>
           </div>
 
