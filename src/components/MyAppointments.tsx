@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { collection, query, where, onSnapshot, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { Calendar, Clock, Scissors, User, AlertCircle, XCircle, CheckCircle2, Sparkles, RefreshCw, CreditCard, LogIn, Trash2, Hourglass } from 'lucide-react';
-import { db, handleFirestoreError, OperationType } from '../lib/firebase';
+import { db, collection, query, where, onSnapshot, doc, updateDoc, deleteDoc, handleFirestoreError, OperationType } from '../lib/firebase';
 import { Appointment } from '../types';
 import { useAuth } from '../context/AuthContext';
 import { AVAILABLE_HOURS, DEFAULT_APPOINTMENTS } from '../data/initialData';

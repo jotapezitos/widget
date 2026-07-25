@@ -160,21 +160,18 @@ export const BrowserWindowMockup: React.FC<BrowserWindowMockupProps> = ({
         </div>
 
         {/* ==================== 3. MAIN BROWSER VIEWPORT BODY ==================== */}
-        <div className={`simulated-window flex-1 w-full overflow-y-auto relative flex flex-col justify-between transition-colors duration-300 ${isDarkMode ? 'dark bg-zinc-950 text-zinc-100' : 'bg-zinc-50 text-zinc-900'}`}>
+        <div className={`simulated-window flex-1 w-full overflow-y-auto relative flex flex-col transition-colors duration-300 ${isDarkMode ? 'dark bg-zinc-950 text-zinc-100' : 'bg-zinc-50 text-zinc-900'}`}>
           <div className="flex-1 w-full">
             {children}
           </div>
-          {simulationBar && (
-            <div className="sticky bottom-0 left-0 right-0 w-full z-40">
-              {simulationBar}
-            </div>
-          )}
         </div>
 
-        {/* ==================== 4. BROWSER STATUS FOOTER BAR ==================== */}
-        <div className="bg-zinc-900 border-t border-zinc-800 px-4 py-2 text-[11px] font-mono text-zinc-400 flex items-center justify-center gap-2 shrink-0">
-          <span className="text-amber-400 font-bold">MODO VISUAL DEMONSTRATIVO</span>
-        </div>
+        {/* ==================== 4. SIMULATION BAR AT VERY BOTTOM ==================== */}
+        {simulationBar && (
+          <div className="w-full shrink-0 border-t border-zinc-800 bg-zinc-950">
+            {simulationBar}
+          </div>
+        )}
 
       </div>
     </div>

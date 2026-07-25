@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { collection, onSnapshot, addDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { Users, Phone, Star, Plus, Edit2, Trash2, CalendarCheck, ShieldAlert } from 'lucide-react';
-import { db, handleFirestoreError, OperationType } from '../lib/firebase';
+import { db, collection, onSnapshot, addDoc, doc, updateDoc, deleteDoc, handleFirestoreError, OperationType } from '../lib/firebase';
 import { Barber } from '../types';
 import { DEFAULT_BARBERS } from '../data/initialData';
 import { useAuth } from '../context/AuthContext';

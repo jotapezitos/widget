@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { collection, query, where, getDocs, addDoc } from 'firebase/firestore';
 import { X, Calendar, Clock, Scissors, User, Phone, CheckCircle2, AlertCircle, ArrowLeft, ArrowRight, Sparkles } from 'lucide-react';
-import { db, handleFirestoreError, OperationType } from '../lib/firebase';
+import { db, collection, query, where, getDocs, addDoc, handleFirestoreError, OperationType } from '../lib/firebase';
 import { Service, Barber, Appointment, TimeSlot } from '../types';
 import { AVAILABLE_HOURS } from '../data/initialData';
 import { useAuth } from '../context/AuthContext';

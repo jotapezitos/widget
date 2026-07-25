@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Headphones, MessageSquare } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import { db } from '../lib/firebase';
-import { collection, query, where, onSnapshot } from 'firebase/firestore';
+import { db, collection, query, where, onSnapshot } from '../lib/firebase';
 
 interface SupportShortcutIconProps {
   onOpenInbox: () => void;

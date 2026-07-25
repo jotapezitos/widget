@@ -24,8 +24,8 @@ export const SimulationTopBar: React.FC<SimulationTopBarProps> = ({
       subtitle: 'Portal de Serviços & Agendamento',
       badge: 'Visão Cliente',
       icon: User,
-      color: 'bg-amber-400 text-black border-black',
-      activeBorder: 'ring-2 ring-amber-400 shadow-[0_0_15px_rgba(250,204,21,0.5)]',
+      color: 'bg-amber-400 text-black border-amber-300',
+      activeBorder: 'ring-2 ring-amber-400 ring-offset-2 ring-offset-zinc-950 shadow-[0_0_15px_rgba(250,204,21,0.4)]',
       desc: 'Simula a experiência do cliente final marcando horários, escolhendo serviços e barbeiros.',
     },
     {
@@ -34,8 +34,8 @@ export const SimulationTopBar: React.FC<SimulationTopBarProps> = ({
       subtitle: 'Painel Gestor & Agenda do Balcão',
       badge: 'Painel Gestor',
       icon: Building2,
-      color: 'bg-blue-600 text-white border-black',
-      activeBorder: 'ring-2 ring-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)]',
+      color: 'bg-blue-600 text-white border-blue-400',
+      activeBorder: 'ring-2 ring-blue-500 ring-offset-2 ring-offset-zinc-950 shadow-[0_0_15px_rgba(59,130,246,0.4)]',
       desc: 'Simula a operação diária da barbearia: agenda de barbeiros, caixa, faturamento e gestão da equipe.',
     },
     {
@@ -44,8 +44,8 @@ export const SimulationTopBar: React.FC<SimulationTopBarProps> = ({
       subtitle: 'Agenda, Comissões & Atendimentos',
       badge: 'Painel Barbeiro',
       icon: Scissors,
-      color: 'bg-emerald-600 text-white border-black',
-      activeBorder: 'ring-2 ring-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.5)]',
+      color: 'bg-emerald-600 text-white border-emerald-400',
+      activeBorder: 'ring-2 ring-emerald-500 ring-offset-2 ring-offset-zinc-950 shadow-[0_0_15px_rgba(16,185,129,0.4)]',
       desc: 'Simula a visão individual do barbeiro: sua fila do dia, comissões e horários agendados.',
     },
   ];
@@ -53,11 +53,11 @@ export const SimulationTopBar: React.FC<SimulationTopBarProps> = ({
   return (
     <>
       {/* Simulation Control Bar - Fixed inside browser window bottom */}
-      <div className="w-full bg-zinc-950/95 backdrop-blur-md text-white border-t-2 border-zinc-800 shadow-[0_-8px_30px_rgba(0,0,0,0.8)] px-3 py-2 sm:px-6 select-none">
+      <div className="w-full bg-zinc-950 text-white px-3 py-2.5 sm:px-6 select-none">
         <div className="max-w-7xl mx-auto flex items-center justify-center">
 
-          {/* View Selector Buttons */}
-          <div className="flex items-center justify-center gap-2 overflow-x-auto py-1 scrollbar-none">
+          {/* View Selector Buttons Container with enough padding so rings/glows aren't clipped */}
+          <div className="flex items-center justify-center gap-2.5 sm:gap-4 overflow-x-auto py-2 px-2 scrollbar-none">
             {levels.map((lvl) => {
               const Icon = lvl.icon;
               const isActive = activeLevel === lvl.id;
@@ -69,9 +69,9 @@ export const SimulationTopBar: React.FC<SimulationTopBarProps> = ({
                     onSelectLevel(lvl.id);
                     if (onTriggerVisualNotice) onTriggerVisualNotice();
                   }}
-                  className={`flex items-center gap-2 px-3.5 sm:px-5 py-2 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer border ${
+                  className={`flex items-center gap-2 px-4 sm:px-5 py-2 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer border ${
                     isActive
-                      ? `${lvl.color} ${lvl.activeBorder} scale-[1.02]`
+                      ? `${lvl.color} ${lvl.activeBorder}`
                       : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border-zinc-800 hover:border-zinc-700'
                   }`}
                   title={lvl.desc}

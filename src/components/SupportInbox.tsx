@@ -26,9 +26,8 @@ import {
   ThumbsDown
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import { db } from '../lib/firebase';
-import { sendEmailNotification, MASTER_ADMIN_EMAIL } from '../lib/emailService';
 import {
+  db,
   collection,
   doc,
   addDoc,
@@ -39,7 +38,8 @@ import {
   where,
   orderBy,
   serverTimestamp
-} from 'firebase/firestore';
+} from '../lib/firebase';
+import { sendEmailNotification, MASTER_ADMIN_EMAIL } from '../lib/emailService';
 import { SupportTicket, SupportMessage } from '../types';
 import { CHATBOT_NODES, ChatbotNode } from '../data/chatbotKnowledge';
 

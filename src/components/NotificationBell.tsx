@@ -13,14 +13,16 @@ import {
   ExternalLink,
 } from 'lucide-react';
 import {
+  db,
   collection,
   onSnapshot,
   doc,
   updateDoc,
   deleteDoc,
   getDoc,
-} from 'firebase/firestore';
-import { db, handleFirestoreError, OperationType } from '../lib/firebase';
+  handleFirestoreError,
+  OperationType,
+} from '../lib/firebase';
 import { useAuth } from '../context/AuthContext';
 import { AppNotification, Appointment } from '../types';
 import { approveRescheduleRequest, rejectRescheduleRequest } from '../lib/notifications';

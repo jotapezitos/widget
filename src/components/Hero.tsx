@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
-import { doc, collection, onSnapshot } from 'firebase/firestore';
 import { Calendar, Sparkles, Star, Scissors, Flame, Zap, CheckCircle, ArrowRight, Play, Pause, Heart, MessageCircle, Send, ShieldCheck, Disc } from 'lucide-react';
-import { db } from '../lib/firebase';
+import { db, doc, collection, onSnapshot } from '../lib/firebase';
 import { GallerySettings, StorySlide, Service, Barber } from '../types';
 import { DEFAULT_GALLERY_SETTINGS, DEFAULT_SERVICES } from '../data/initialData';
 import { MediaRenderer, getMediaEmbedInfo } from './MediaRenderer';

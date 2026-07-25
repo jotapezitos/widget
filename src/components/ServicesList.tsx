@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { collection, onSnapshot, addDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { Scissors, Clock, Plus, Trash2, Edit2, Sparkles, CheckCircle2 } from 'lucide-react';
-import { db, handleFirestoreError, OperationType } from '../lib/firebase';
+import { db, collection, onSnapshot, addDoc, doc, updateDoc, deleteDoc, handleFirestoreError, OperationType } from '../lib/firebase';
 import { Service } from '../types';
 import { DEFAULT_SERVICES } from '../data/initialData';
 import { useAuth } from '../context/AuthContext';

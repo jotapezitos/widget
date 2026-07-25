@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { collection, query, where, onSnapshot } from 'firebase/firestore';
 import { X, User, Phone, Crown, Calendar, CheckCircle2, XCircle, Clock, Sparkles, LogOut, Edit2, Save, ShieldCheck } from 'lucide-react';
-import { db } from '../lib/firebase';
+import { db, collection, query, where, onSnapshot } from '../lib/firebase';
 import { useAuth } from '../context/AuthContext';
 import { Appointment } from '../types';
 

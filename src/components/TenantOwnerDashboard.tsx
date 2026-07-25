@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { collection, onSnapshot, doc, updateDoc, deleteDoc, addDoc, setDoc } from 'firebase/firestore';
 import { Building2, DollarSign, Calendar as CalendarIcon, Scissors, Users, Clock, CreditCard, Sparkles, Plus, Edit3, CheckCircle2, XCircle, ShieldCheck, ArrowUpRight, ArrowDownRight, RefreshCw, Layers, Image as ImageIcon, Trash2, ArrowUp, ArrowDown, Flame, Zap, Save, Instagram, Camera, AtSign, Check, AlertCircle, Menu, ChevronDown, Lock, MessageCircle } from 'lucide-react';
-import { db, handleFirestoreError, OperationType } from '../lib/firebase';
+import { db, collection, onSnapshot, doc, updateDoc, deleteDoc, addDoc, setDoc, handleFirestoreError, OperationType } from '../lib/firebase';
 import { Appointment, AppointmentStatus, Barber, Service, SaaSPlan, GallerySettings, StorySlide } from '../types';
 import { DEFAULT_SAAS_PLANS } from '../data/saasDefaults';
 import { DEFAULT_GALLERY_SETTINGS, AVAILABLE_HOURS, DEFAULT_APPOINTMENTS } from '../data/initialData';
